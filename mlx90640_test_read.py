@@ -21,6 +21,7 @@ mlx = adafruit_mlx90640.MLX90640(i2c) # 0x33 address
 mlx.refresh_rate = adafruit_mlx90640.RefreshRate.REFRESH_8_HZ # DO NOT GO ABOVE 16HZ, if "too many retries" exception then lower
     
 mlx_shape = (24,32)
+
     
 def update_plot():
     print("test")
@@ -33,14 +34,14 @@ def check_battery():
 if __name__ == '__main__':
     
     
-    root = tk.Tk()
-    plot_btn = tk.Button(root, command = update_plot, height=2, width=10, text= "Test")
-    plot_btn.pack()
+    #root = tk.Tk()
+    #plot_btn = tk.Button(root, command = update_plot, height=2, width=10, text= "Test")
+    #plot_btn.pack()
     
-    exit2 = tk.Button(root,command = close, height =2, width = 12, text = "close")
-    exit2.pack()
+    #exit2 = tk.Button(root,command = close, height =2, width = 12, text = "close")
+    #.pack()
     
-    root.mainloop()
+    #root.mainloop()
     # setup the figure for plotting
     plt.ion() # enables interactive plotting
     fig,ax = plt.subplots(figsize=(8,5))
@@ -51,6 +52,7 @@ if __name__ == '__main__':
     
 
     frame = np.zeros((24*32,)) # setup array for storing all 768 temperatures
+    
     t_array = []
     while True:
         t1 = time.monotonic()
